@@ -1,0 +1,74 @@
+<html>
+
+    <head>
+        <meta name="viewport" content="width-device-width, initial-scale=1.0">
+        <link href="https://fonts.googleapis.com/css?family=Play&display=swap" rel="stylesheet">
+
+        <title> Pneumonia Diagnosis BVUCOEP </title>
+
+        <meta name="theme-color" content="#ffffff">
+
+        <style>
+        body
+        {
+        background-repeat:no-repeat;
+        background-attached:fixed;
+        background-size:cover;
+        background-image:url({{url_for('static',filename='med.jpg')}})
+        </style>
+
+    </head>
+
+<body>
+<center>
+
+    <div class="very_main">
+
+        <header>
+            <div class="top_frame">
+                <h1 style="color:#000080">Bharati Vidyapeeth College Of Engineering,Pune</h1>
+                <img src="{{url_for('static',filename='bvp.png')}}"></img>
+                <h2  style="color:#000080"> Final Year Project </h2>
+                <h1  style="color:#000080"> Pneumonia Detection by Analyzing Chest-Xray images</h1>
+                <h2  style="color:#000080"> Please Upload a Chest X-ray image</h2>
+            </div>
+        </header>
+
+        {% extends "base.html" %} {% block content %}
+
+
+        <div>
+            <form id="upload-file" method="post" enctype="multipart/form-data">
+                <label for="imageUpload" class="upload-label">
+                    Select your X-Ray Visual
+                </label>
+                <input type="file" name="file" id="imageUpload" accept=".png, .jpg, .jpeg">
+            </form>
+
+            <div class="image-section" style="display:none;">
+                <div class="img-preview">
+                    <div id="imagePreview">
+                    </div>
+                </div>
+                <div>
+                    <button type="button" class="upload-label" id="btn-predict">Predict!</button>
+                </div>
+            </div>
+
+            <div class="loader" style="display:none;"></div>
+
+            <h2 style="color:#000080" id="result">
+                <span> </span>
+            </h2>
+
+        </div>
+
+
+
+    </div>
+
+    {% endblock %}
+</center>
+</body>
+
+</html>
